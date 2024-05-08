@@ -17,6 +17,29 @@ nv() {
     fi
   fi
 }
+dev() {
+  if [ $# -eq 0 ]; then
+    echo "Please specify a project"
+  else
+    parts=("${(@s:/:)1}")
+    default_account=${PROJ_ACCOUNT:-mcjcloud}
+    account=${parts[1]:-$default_account}
+    repo=$parts[2]
+    if [[ -z $parts[2] ]]; then
+      account=$default_account
+      repo=$parts[1]
+    fi
+
+    final_path="${PROJ_DIR:-"~"}/$account/$repo"
+
+    if [ -d $final_path ]; then
+      nv $final_path
+    else
+      echo "$1 is not a directory"
+    fi
+
+  fi
+}
 
 # Git branch in prompt
 # Load version control information
