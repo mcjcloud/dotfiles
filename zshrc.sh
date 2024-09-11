@@ -40,6 +40,12 @@ dev() {
 
   fi
 }
+expand_proj_dir() {
+  for i in $@
+  do
+    echo "$PROJ_DIR/$i"
+  done
+}
 
 # Git branch in prompt
 # Load version control information
@@ -49,7 +55,8 @@ precmd() { vcs_info }
 # Format the vcs_info_msg_0_ variable (shell prompt)
 zstyle ':vcs_info:git:*' formats ' %F{011}%r%f %F{010}(%b)%f'
 setopt PROMPT_SUBST
-PROMPT='%F{006}[%n]%f${vcs_info_msg_0_} ${PWD/#$HOME/~} $ '
+PROMPT='%F{006}[%n]%f${vcs_info_msg_0_} ${PWD/#$HOME/~}
+$ '
 
 # fzf
 eval "$(fzf --zsh)"
@@ -62,13 +69,19 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 _fzf_comprun() {
   local command=$1
   shift
+  echo $command
 
   case "$command" in
-    cd|nv)           fzf --preview 'eza --tree --level=2 --color=always {} | head -200' "$@" ;;
+    cd|nv)        fzf --preview 'eza --tree --level=2 --color=always {} | head -200' "$@" ;;
     export|unset) fzf --preview "eval 'echo $'{}"         "$@" ;;
     ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    dev)          fzf --preview 'eza --tree --level=2 --color=always {}' "$@" ;;
     *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
   esac
+}
+_fzf_complete_dev() {
+  shift
+  _fzf_complete --multi --reverse -- "$@" < <(expand_proj_dir $(/bin/ls $PROJ_DIR))
 }
 
 # syntax highlight less

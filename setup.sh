@@ -1,5 +1,5 @@
 # install dependencies
-brew install neovim fzf bat eza git-delta zoxide
+brew install neovim fzf bat eza git-delta zoxide ripgrep fd
 
 # update .gitconfig
 echo "Extending Git config"
