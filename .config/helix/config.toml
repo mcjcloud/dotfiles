@@ -1,0 +1,6 @@
+theme="everforest_dark_transparent"
+
+[editor]
+line-number="relative"
+mouse=false
+bufferline="always"

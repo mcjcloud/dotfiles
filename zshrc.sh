@@ -1,7 +1,8 @@
-#!/bin/zsh
 # dev environment
 alias tmux="TERM=screen-256color-bce tmux"
 alias ta="tmux attach"
+alias zj="zellij"
+
 nv() {
   if [ $# -eq 0 ]; then
     nvim
