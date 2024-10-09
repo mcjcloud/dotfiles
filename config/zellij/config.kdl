@@ -13,5 +13,6 @@ keybinds {
         bind "Alt L" { GoToPreviousTab; }
         bind "Alt n" { NewTab; }
         bind "Alt v" { NewPane; }
+        bind "Alt V" { NewPane "Down"; }
     }
 }
