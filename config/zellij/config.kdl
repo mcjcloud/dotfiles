@@ -1,0 +1,17 @@
+simplified_ui true
+pane_frames false
+default_layout "compact"
+
+keybinds {
+    shared {
+        bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
+        bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
+        bind "Alt j" "Alt Down" { MoveFocus "Down"; }
+        bind "Alt k" "Alt Up" { MoveFocus "Up"; }
+        bind "Alt m" { ToggleFloatingPanes; }
+        bind "Alt H" { GoToNextTab; }
+        bind "Alt L" { GoToPreviousTab; }
+        bind "Alt n" { NewTab; }
+        bind "Alt v" { NewPane; }
+    }
+}
