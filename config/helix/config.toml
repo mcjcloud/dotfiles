@@ -1,6 +1,11 @@
-theme="everforest_dark_transparent"
+theme="ferra"
 
 [editor]
 line-number="relative"
 mouse=false
 bufferline="always"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"

@@ -1,7 +1,14 @@
 # dev environment
 alias tmux="TERM=screen-256color-bce tmux"
 alias ta="tmux attach"
-alias zj="zellij"
+
+zj() {
+  if [ $# -eq 0 ]; then
+    zellij
+  else
+    cd $1 && zellij -s $1 && cd -
+  fi
+}
 
 nv() {
   if [ $# -eq 0 ]; then
