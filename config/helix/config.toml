@@ -9,3 +9,6 @@ bufferline="always"
 insert = "bar"
 normal = "block"
 select = "underline"
+
+[keys.normal]
+X = "select_line_above"
