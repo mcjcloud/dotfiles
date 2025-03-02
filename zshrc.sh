@@ -6,7 +6,7 @@ zj() {
   if [ $# -eq 0 ]; then
     zellij
   else
-    cd $1 && zellij -s $1 && cd -
+    zellij attach $1 || cd $1 && zellij -s $1 && cd -
   fi
 }
 
