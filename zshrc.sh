@@ -1,6 +1,8 @@
 # dev environment
 alias tmux="TERM=screen-256color-bce tmux"
 alias ta="tmux attach"
+export PATH=/opt/homebrew/opt/llvm/bin:$PATH
+export EDITOR="hx"
 
 zj() {
   if [ $# -eq 0 ]; then
